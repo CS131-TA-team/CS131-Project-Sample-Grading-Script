@@ -21,7 +21,7 @@
     import os
     os.system('sox input.wav -b 24 output.aiff rate -v -L -b 90 48k')
     ```
-- under [resources](./resources) folder I put my hint code for you to get started with this project there.
+- under [hint code repo](https://github.com/CS131-TA-team/UCLA_CS131_CodeHelp/tree/master/Python) I put my hint code for you to get started with this project there.
 
 ## Usage
 * put your ```server.py``` and all other needed ```.py``` files under the [**sample_submission**](./sample_submission) folder
