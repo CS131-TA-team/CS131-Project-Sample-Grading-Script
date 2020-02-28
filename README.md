@@ -5,7 +5,7 @@
 * You may regard it as a super client (who has the power of starting a server) as well.
 
 ## Background
-- This is for [UCLA CS131 (**Programming Languages**)](http://web.cs.ucla.edu/classes/fall19/cs131/index.html) [**Project**](http://web.cs.ucla.edu/classes/fall19/cs131/hw/pr.html) (instructor: [Prof. Paul Eggert](http://web.cs.ucla.edu/classes/fall19/cs131/mail-eggert.html))
+- This is for [UCLA CS131 (**Programming Languages**)](http://web.cs.ucla.edu/classes/winter20/cs131/index.html) [**Project**](http://web.cs.ucla.edu/classes/winter20/cs131/hw/pr.html) (instructor: [Prof. Paul Eggert](http://web.cs.ucla.edu/classes/winter20/cs131/mail-eggert.html))
 - This project is on Python, specifically aiming at the use of [asyncio](https://docs.python.org/3/library/asyncio.html) and [aiohttp](https://aiohttp.readthedocs.io/en/stable/)
 - To complete the project a Google Map API Key is needed, I tried, in order to get rid of the limit you need payment information attached.
 
