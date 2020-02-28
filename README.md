@@ -26,14 +26,13 @@
 ## Usage
 * put your ```server.py``` and all other needed ```.py``` files under the [**sample_submission**](./sample_submission) folder
 * modify the port number in ```client_basic.py``` (or keep them the same if you run on local machine --- the easiest way to test your code is to change your port number to around 800X and then test them on your local machine)
+    * If you run on your local environment and see error of **ssl**, please try replacing ```aiohttp_command = 'aiohttp.ClientSession()'``` with ```aiohttp_safe_command = 'aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False))'```.
 * could run single evaluation by
     ```shell
     python client_basic.py
     ```
-* I think it should work for mac and linux, probably won't work on Windows
-* Probably a little bit adaptation is needed, probably the version matters
-* Probably some mistake in this readme... I was too tired when I wrote this
-* Once it works, feel free to add your own test cases in ```client_basic.SuperClient.test```; it's easy isn't it?
+* Guaranteed to work on mac and linux, not 100% sure about Windows.
+* Once it works, feel free to add your own test cases in ```client_basic.SuperClient.test```
 
 ## About organizing log files
 You might want to have a look at [os.mkdir](https://www.tutorialspoint.com/python/os_mkdir.htm) and [os.path.exists](https://www.geeksforgeeks.org/python-os-path-exists-method/)
