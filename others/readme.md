@@ -1,0 +1,11 @@
+# other scripts
+
+## To future TAs
+- Please download the .tab file of the students' ids from MyUCLA, and name it "name;ist.tab", put under this repository.
+- Specify the min_port and max_port (two integers) in ports_config.py
+- Then run ```python assign_ports.py```
+
+## To students
+- After the TAs assigned the ports to you, you should see *ports_assigned.csv*
+- You may read from it directly, or you can also run ```python check_my_ports.py``` with the script and *ports_assigned.csv* under the same repo.
+- Please make sure that you installed [pandas](https://pandas.pydata.org/docs/getting_started/install.html#installing-pandas) before running the port-checking script.
