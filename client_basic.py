@@ -12,8 +12,8 @@ import sys
 '''
 communicate (['Hill', 'Jaquez', 'Smith', 'Campbell', 'Singleton'])
 0 1 1 0 0
-0 1 0 0 1
-0 0 0 1 1
+1 0 0 0 1
+1 0 0 1 1
 0 0 1 0 1
 0 1 1 1 0
 '''
