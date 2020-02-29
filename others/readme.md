@@ -2,7 +2,7 @@
 
 ## To future TAs
 - Please download the .tab file of the students' ids from MyUCLA, and name it "namelist.tab", put under this repository.
-- Specify the min_port and max_port (two integers) in ports_config.py
+- Specify the min_port and max_port (two integers) in a file called ports_config.py
 - Then run ```python assign_ports.py```
 
 ## To students
