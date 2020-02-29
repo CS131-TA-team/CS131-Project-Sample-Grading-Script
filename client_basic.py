@@ -19,7 +19,7 @@ communicate (['Hill', 'Jaquez', 'Smith', 'Campbell', 'Singleton'])
 '''
 
 TIMEOUT_MSG = "TIMEOUT"
-PYTHON_VER = "3.8" # "3.7"
+PYTHON_VER = "3.7" # "3.7"
 
 class SuperClient:
     def __init__(self, host='127.0.0.1', message_max_length=1e6, timeout=None):
