@@ -26,7 +26,7 @@
 ## Usage
 * put your ```server.py``` and all other needed ```.py``` files under the [**sample_submission**](./sample_submission) folder
 * modify the port number in ```client_basic.py``` (or keep them the same if you run on local machine --- the easiest way to test your code is to change your port number to around 800X and then test them on your local machine)
-    * If you run on your local environment and see error of **ssl**, please try replacing ```aiohttp_command = 'aiohttp.ClientSession()'``` with ```aiohttp_safe_command = 'aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False))'```.
+    * If you run on your local environment and see error of **ssl**, please try replacing ```aiohttp.ClientSession()``` with ```aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False))```.
 * could run single evaluation by
     ```shell
     python client_basic.py
