@@ -9,9 +9,6 @@
 - This project is on Python, specifically aiming at the use of [asyncio](https://docs.python.org/3/library/asyncio.html) and [aiohttp](https://aiohttp.readthedocs.io/en/stable/)
 - To complete the project a Google Map API Key is needed, I tried, in order to get rid of the limit you need payment information attached.
 
-## Warning
-- Please avoid using ```transport.write()``` !
-
 ## Resource
 - Thanks to previous-year TA, Wenhao's code
 - Following [discussion online](https://stackoverflow.com/questions/3855127/find-and-kill-process-locking-port-3000-on-mac), to kill the process occupying port 8000 we could run: 
