@@ -24,8 +24,9 @@ PYTHON_VER = "3.8" # "3.7"
 class SuperClient:
     def __init__(self, host='127.0.0.1', message_max_length=1e6, timeout=None):
         '''
-        127.0.0.1 is the localhost
-        port could be any port
+        127.0.0.1 is the localhost, you NEVER need to change it
+        port could be any port, the ports assigned to you on SEASnet is the ones to use on servers
+        debugging locally you can use ports 8000~9000 on your machine
         '''
         self.host = host
         self.message_max_length = int(message_max_length)
