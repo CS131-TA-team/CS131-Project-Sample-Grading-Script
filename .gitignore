@@ -5,3 +5,4 @@ sample_submission/server.py
 others/ports_config.py
 others/namelist.tab
 *.txt
+sample_submission/report.pdf
