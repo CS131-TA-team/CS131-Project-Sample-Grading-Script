@@ -167,10 +167,10 @@ class SuperClient:
         # start the servers
         self.start_all_servers()
         # basic test sample
-        data = self.run_iamat(self.Hill, "client", 34.068930, -118.445127)
+        data = self.safe_run_iamat(self.Hill, "client", 34.068930, -118.445127)
         basic_correctness = evaluate_info(data, self.port2server[self.Hill], "client", 34.068930, -118.445127)
         report_correctness("basic iamat correctness", basic_correctness)
-        first_line, json_part = self.run_whatsat(self.Hill, "client", 10, 5)
+        first_line, json_part = self.safe_run_whatsat(self.Hill, "client", 10, 5)
         first_line_correctness = evaluate_info(first_line, self.port2server[self.Hill], "client", 34.068930, -118.445127)
         json_correctness = evaluate_json(json_part, 5)
         report_correctness("basic whatsat first line correctness", first_line_correctness)
