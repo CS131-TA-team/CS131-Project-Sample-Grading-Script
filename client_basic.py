@@ -78,7 +78,9 @@ class SuperClient:
         return data.decode().strip()
 
     async def iamat(self, port, clientName, longitude, latitude):
+        print("\t\tdebug: sending IAMAT messages")
         message = IAMAT(clientName, longitude, latitude, time.time())
+        print("\t\tdebug: try to connecting to the server at port {}".format(port))
         reader, writer = await asyncio.open_connection(self.host, port, loop=self.loop)
         # write
         writer.write(str(message).encode())
@@ -121,6 +123,7 @@ class SuperClient:
 
     def run_iamat(self, port, clientName, longitude, latitude):
         # start the loop
+        print("\tdebug: fetching IAMAT data")
         data = self.loop.run_until_complete(self.iamat(port, clientName, longitude, latitude))
         return data
     def safe_run_iamat(self, *args):
