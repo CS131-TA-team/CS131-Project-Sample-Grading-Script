@@ -4,3 +4,5 @@ others/namelist.tab
 sample_submission/server.py
 sample_submission/report.pdf
 sample_submission/server_buggy.py
+*.txt
+nohup.out
