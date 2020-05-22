@@ -190,11 +190,11 @@ class SuperClient:
                 ordered_remaining_ports = list(remaining_ports)
                 test_case = {
                     "server": ordered_remaining_ports[0],
-                    "client": "client_new_{}".format(i),
-                    "latitude": +37.551379,
-                    "longitude": +126.993287,
-                    "radius": 20,
-                    "max_item": 10
+                    "client": "client_{}".format(i),
+                    "latitude": +34.068930,
+                    "longitude": -118.445127,
+                    "radius": 10,
+                    "max_item": 5
                 }
                 # print("dropped {}, {}".format(dropped_i, dropped_j))
                 data = self.safe_run_iamat(test_case["server"], test_case["client"], test_case["latitude"], test_case["longitude"])
