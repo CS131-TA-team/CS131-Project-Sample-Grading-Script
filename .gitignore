@@ -7,3 +7,4 @@ others/namelist.tab
 *.txt
 *.log
 sample_submission/report.pdf
+sample_submission/server_buggy.py
