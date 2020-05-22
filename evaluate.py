@@ -9,7 +9,7 @@ def parse_float(full_string):
 def evaluate_json(json_data, len_results=0):
     if isinstance(json_data, list):
         # contains only the place info
-        json_data = {"results": json_data}
+        json_data = {"results": json_data, "status": "OK", "html_attributions": []}
     format_correct = len(set(["html_attributions", "results", "status"]) - set(json_data.keys())) == 0
     # otherwise there's a missing field
     result_valid = json_data.get("status") == "OK"
@@ -86,3 +86,9 @@ def compare_lists(list1, list2):
             list2.pop(list2.index(elem))
     return tuple(match)
 
+def report_correctness(term, value):
+    # if not isinstance(value, list) and not isinstance(value, tuple):
+    if isinstance(value, bool):
+        value = [value]
+    print("{} score {}/{}".format(term, sum(value), len(value)))
+    print("\t details: {}".format(value))
