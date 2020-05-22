@@ -7,7 +7,7 @@
 ## [WARNING] This is NOT the real grading script
 * If you pass this script with ordinary manner, then you should be fine
 * Don't try to fool our grading script by hard-coding any answer inside, the real test cases are totally different
-* We have stronger checking points that what is listed in [evaluate.py](./evaluate.py), please do not try to fool our script by hacking the criterias.
+* We have **much stronger** checking points that what is listed in [evaluate.py](./evaluate.py), please do not try to fool our script by hacking the criterias.
 
 ## Background
 - This is for [UCLA CS131 (**Programming Languages**)](http://web.cs.ucla.edu/classes/winter20/cs131/index.html) [**Project**](http://web.cs.ucla.edu/classes/winter20/cs131/hw/pr.html) (instructor: [Prof. Paul Eggert](http://web.cs.ucla.edu/classes/winter20/cs131/mail-eggert.html))
