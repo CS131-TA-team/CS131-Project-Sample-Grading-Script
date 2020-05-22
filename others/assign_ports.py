@@ -11,7 +11,7 @@ def chunks(lst, n):
         yield lst[i:i + n]
 def int2id(id_int, total_length=9):
     '''recover id number'''
-    valid_digits = str(id_int)
+    valid_digits = str(int(id_int))
     zeros = total_length - len(valid_digits)
     zeros_digits = "0" * zeros
     return zeros_digits + valid_digits
@@ -21,6 +21,33 @@ all_ports = list(range(min_port, max_port))
 ports_each_student = 5
 ports_slots = np.array(list(chunks(all_ports, ports_each_student)))
 slots_idxs = list(range(ports_slots.shape[0]))
+
+# preprocess Name (xxx-xxx-xxx) into proper file format
+write_content = ""
+skip = True
+replace = True
+with open("namelist.tab", "r") as f:
+    line = f.readline()
+    if len(line.split("\t")) > 1: 
+        replace = False
+    if replace:
+        while line:
+            line = f.readline()
+            if skip:
+                if len(line.split("\t")) == 1: 
+                    continue
+                else:
+                    line = f.readline() # throw a line
+                    skip = False
+            # continue processing the student's id
+            student_name_and_id = line.split("\t")[0]
+            student_name = student_name_and_id[:-13]
+            student_id = student_name_and_id[-13:].replace("(", "").replace(")", "").replace("-", "")
+            if len(student_id) == 9:
+                write_content += "{}\t{}\n".format(student_id, student_name)
+if replace:
+    with open("namelist.tab", "w") as f:
+        f.write(write_content)
 
 df = pd.read_csv("namelist.tab", sep="\t", header=None)
 students_ids = [int2id(i) for i in df[0]]
