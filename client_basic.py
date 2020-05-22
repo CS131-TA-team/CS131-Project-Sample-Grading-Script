@@ -39,7 +39,7 @@ class SuperClient:
         self.Smith = port_dict['Smith']
         self.Campbell = port_dict['Campbell']
         self.Singleton = port_dict['Singleton']
-        self.server = os.path.join(server_dir, "server.py")
+        self.server = os.path.join(server_dir, "server_buggy.py")
 
     async def start_server(self, server_name):
         command = 'nohup python{} {} {} &\n'.format(PYTHON_VER, self.server, server_name)
@@ -164,9 +164,14 @@ class SuperClient:
             self.run_endserver(server_name)
             # similarly, self.run_startserver(server_name) could be used to start a single server
         # start the servers
+        print("debug: starting the servers")
         self.start_all_servers()
+        print("debug: finished starting the servers")
         # basic test
+        print("debug: running the basic test of IAMAT")
         data = self.run_iamat(self.Hill, "client", 34.068930, -118.445127)
+        print("debug: succeed the IAMAT command")
+        print("debug: running the basic test of IAMAT")
         print(evaluate_info(data, self.port2server[self.Hill], "client", 34.068930, -118.445127))
         first_line, json_part = self.run_whatsat(self.Hill, "client", 10, 5)
         print(evaluate_info(first_line, self.port2server[self.Hill], "client", 34.068930, -118.445127))

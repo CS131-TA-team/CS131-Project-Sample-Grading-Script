@@ -6,3 +6,4 @@ sample_submission/report.pdf
 sample_submission/server_buggy.py
 *.txt
 nohup.out
+*.log
