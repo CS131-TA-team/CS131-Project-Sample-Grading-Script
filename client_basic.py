@@ -3,7 +3,7 @@ import argparse
 import time
 import json
 from messages import IAMAT, WHATSAT
-from evaluate import evaluate_json, evaluate_info
+from evaluate import evaluate_json, evaluate_info, evaluate_flooding, compare_lists, report_correctness
 import pandas as pd
 import os
 import sys
@@ -166,15 +166,49 @@ class SuperClient:
             # similarly, self.run_startserver(server_name) could be used to start a single server
         # start the servers
         self.start_all_servers()
-        # basic test
+        # basic test sample
         data = self.run_iamat(self.Hill, "client", 34.068930, -118.445127)
-        print(evaluate_info(data, self.port2server[self.Hill], "client", 34.068930, -118.445127))
+        basic_correctness = evaluate_info(data, self.port2server[self.Hill], "client", 34.068930, -118.445127)
+        report_correctness("basic iamat correctness", basic_correctness)
         first_line, json_part = self.run_whatsat(self.Hill, "client", 10, 5)
-        print(evaluate_info(first_line, self.port2server[self.Hill], "client", 34.068930, -118.445127))
-        print(evaluate_json(json_part, 5))
-        first_line, json_part = self.run_whatsat(self.Jaquez, "client", 10, 5)
-        print(evaluate_info(first_line, self.port2server[self.Hill], "client", 34.068930, -118.445127))
-        print(evaluate_json(json_part, 5))
+        first_line_correctness = evaluate_info(first_line, self.port2server[self.Hill], "client", 34.068930, -118.445127)
+        json_correctness = evaluate_json(json_part, 5)
+        report_correctness("basic whatsat first line correctness", first_line_correctness)
+        report_correctness("basic whatsat json part correctness", json_correctness)
+        # more advanced example (simpler than the real test case)
+        all_results = list()
+        robustness = list()
+        all_servers_idxs = list(enumerate(all_servers))
+        for index_i in range(len(all_servers_idxs)-1):
+            (i,dropped_i) = all_servers_idxs[index_i]
+            self.run_endserver(dropped_i)
+            remaining_ports_i = set(self.port_dict.values()) - set([self.port_dict[dropped_i]])
+            for index_j in range(index_i+1, len(all_servers_idxs)):
+                (j,dropped_j) = all_servers_idxs[index_j]
+                self.run_endserver(dropped_j)
+                remaining_ports = remaining_ports_i - set([self.port_dict[dropped_j]])
+                ordered_remaining_ports = list(remaining_ports)
+                test_case = {
+                    "server": ordered_remaining_ports[0],
+                    "client": "client_new_{}".format(i),
+                    "latitude": +37.551379,
+                    "longitude": +126.993287,
+                    "radius": 20,
+                    "max_item": 10
+                }
+                # print("dropped {}, {}".format(dropped_i, dropped_j))
+                data = self.safe_run_iamat(test_case["server"], test_case["client"], test_case["latitude"], test_case["longitude"])
+                results = self.safe_run_whatsat(test_case["server"], test_case["client"], test_case["radius"], test_case["max_item"])
+                flooding_results = [self.safe_run_whatsat(port, test_case["client"], test_case["radius"], test_case["max_item"]) for port in ordered_remaining_ports[1:]]
+                advanced_flooding_report = evaluate_flooding(flooding_results, results, test_case["max_item"])
+                advanced_flooding_correctness_tmp = advanced_flooding_report[0] and advanced_flooding_report[1]
+                all_results.append(advanced_flooding_correctness_tmp)
+                robustness.append(advanced_flooding_report[2])
+                self.run_startserver(dropped_j)
+            self.run_startserver(dropped_i)
+        flooding_correctness = compare_lists([True] * 7 + [False] * 3, all_results)
+        report_correctness("advanced flooding correctness", flooding_correctness)
+        report_correctness("advanced flooding robustness", robustness)
         self.loop.close()
         # terminate the servers
         self.end_all_servers()

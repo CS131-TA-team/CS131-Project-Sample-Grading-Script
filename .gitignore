@@ -4,3 +4,4 @@ sample_submission/server.py
 *.pyc
 others/ports_config.py
 others/namelist.tab
+*.txt
