@@ -83,6 +83,7 @@ class SuperClient:
         print("\t\tdebug: try to connecting to the server at port {}".format(port))
         reader, writer = await asyncio.open_connection(self.host, port, loop=self.loop)
         # write
+        print("\t\tdebug: writing to the server at port {}".format(port))
         writer.write(str(message).encode())
         await writer.drain()
         writer.write_eof()
