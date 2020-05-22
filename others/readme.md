@@ -2,6 +2,7 @@
 
 ## To future TAs
 - Please download the .tab file (GradeBook---(upper-right-coner)--->Tabbed download) of the students' ids from MyUCLA, and name it "namelist.tab", put under this repository.
+- remove the first few lines of **namelist.tab**, leaving the lines starting from students' info
 - Specify the min_port and max_port (two integers) in [ports_config.py](./ports_config.py)
 - Then run ```python assign_ports.py```
 
