@@ -33,6 +33,9 @@
     ```
 * Guaranteed to work on mac and linux, not 100% sure about Windows.
 * Once it works, feel free to add your own test cases in ```client_basic.SuperClient.test```
+* Before final submission, remove your ```server.py```, and test whether or not your file could be successfully unzipped by:
+    1. Putting the **project.tgz** file under [**sample_submission**](./sample_submission)
+    2. Come back to this directory, and run ```python preprocess.py```.
 
 ## About organizing log files
 You might want to have a look at [os.mkdir](https://www.tutorialspoint.com/python/os_mkdir.htm) and [os.path.exists](https://www.geeksforgeeks.org/python-os-path-exists-method/)
