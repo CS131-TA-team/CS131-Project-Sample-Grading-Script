@@ -12,9 +12,13 @@
 ## Resource
 - Thanks to previous-year TA, Wenhao's code
 - Following [discussion online](https://stackoverflow.com/questions/3855127/find-and-kill-process-locking-port-3000-on-mac), to kill the process occupying port 8000 we could run: 
-    ```shell
-    lsof -ti:8000 | xargs kill
-    ```
+```shell
+lsof -ti:8000 | xargs kill
+```
+- To find who is listening to port ```8000```:
+```shell
+lsof -i:8000
+```
 - To run a script in the background I used *nohup*
 - To execute [command line within Python](https://stackoverflow.com/questions/450285/executing-command-line-programs-from-within-python):
     ```shell
