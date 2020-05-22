@@ -13,3 +13,4 @@ if your_ports is not None:
 	print("Your ports are: {}".format(your_ports))
 else:
 	print("There's something wrong with your ID, we couldn't find your port. Please contact the TAs for help.")
+	print("Or probably you are checking it too early and we haven't assigned the ports for this quarter.")
