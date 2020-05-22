@@ -216,7 +216,7 @@ class SuperClient:
 
 if __name__ == '__main__':
     TIMEOUT = 20
-    # an example of the ports
+    # an example of the ports (these port numbers work on your local machine, but not on the server)
     port_dict = {
         'Hill': 8000,
         'Jaquez': 8001,
