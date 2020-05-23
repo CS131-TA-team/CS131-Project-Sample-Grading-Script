@@ -9,6 +9,12 @@
 * Don't try to fool our grading script by hard-coding any answer inside, the real test cases are totally different
 * We have **much stronger** checking points that what is listed in [evaluate.py](./evaluate.py), please do not try to fool our script by hacking the criterias.
 
+## Recent Updates
+* SEASnet has some servers where the environment e.g. path is not the same as what we've tested upon, and couldn't recognize ```lsof```. To make it work, consider trying:
+```
+PATH="/usr/sbin/:$PATH" python3 client_basic.py
+```
+
 ## Background
 - This is for [UCLA CS131 (**Programming Languages**)](http://web.cs.ucla.edu/classes/winter20/cs131/index.html) [**Project**](http://web.cs.ucla.edu/classes/winter20/cs131/hw/pr.html) (instructor: [Prof. Paul Eggert](http://web.cs.ucla.edu/classes/winter20/cs131/mail-eggert.html))
 - This project is on Python, specifically aiming at the use of [asyncio](https://docs.python.org/3/library/asyncio.html) and [aiohttp](https://aiohttp.readthedocs.io/en/stable/)
